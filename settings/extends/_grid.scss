@@ -211,20 +211,20 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
  * 2. Remove any margins and paddings that might affect the grid system.
  * 3. Apply a negative `margin-left` to negate the columns’ gutters.
  */
-#{$class-type}grid {
+#{$class-type}grid, grid {
     list-style:none;                /* [1] */
     margin:0;                       /* [2] */
     padding:0;                      /* [2] */
     margin-left:-$gutter;           /* [3] */
     @if not $use-markup-fix {
-        letter-spacing:-0.32em; //fixed from -0.31em bugged in chrome
+        letter-spacing:-0.32em;
     }
 }
 
 @if not $use-markup-fix {
     /* Opera hack */
     .opera:-o-prefocus,
-    #{$class-type}grid {
+    #{$class-type}grid, grid {
         word-spacing:-0.43em;
     }
 }
@@ -237,7 +237,7 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
      * 4. Full-width unless told to behave otherwise.
      * 5. Required to combine fluid widths and fixed gutters.
      */
-    #{$class-type}grid__item {
+    #{$class-type}grid__item, item {
         display:inline-block;           /* [1] */
         padding-left:$gutter;           /* [2] */
         vertical-align:top;             /* [3] */
@@ -262,7 +262,7 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
     direction:rtl;
     text-align:left;
 
-    > #{$class-type}grid__item {
+    > #{$class-type}grid__item, item {
         direction:ltr;
         text-align:left;
     }
